@@ -1,0 +1,94 @@
+<div>
+  <h2 id="page-heading" data-cy="EducationDetailsHeading">
+    <span jhiTranslate="resumeApp.educationDetails.home.title">Education Details</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="resumeApp.educationDetails.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-education-details"
+        [routerLink]="['/education-details/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="resumeApp.educationDetails.home.createLabel"> Create a new Education Details </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="educationDetails?.length === 0">
+    <span jhiTranslate="resumeApp.educationDetails.home.notFound">No educationDetails found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="educationDetails && educationDetails.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.educationDetails.schoolName">School Name</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.educationDetails.city">City</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.educationDetails.state">State</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.educationDetails.startDate">Start Date</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.educationDetails.endDate">End Date</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.educationDetails.degree">Degree</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.educationDetails.fieldofStudy">Fieldof Study</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.educationDetails.graduationDate">Graduation Date</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.educationDetails.educationSummary">Education Summary</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let educationDetails of educationDetails; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/education-details', educationDetails.id, 'view']">{{ educationDetails.id }}</a>
+          </td>
+          <td>{{ educationDetails.schoolName }}</td>
+          <td>{{ educationDetails.city }}</td>
+          <td>{{ educationDetails.state }}</td>
+          <td>{{ educationDetails.startDate | formatMediumDate }}</td>
+          <td>{{ educationDetails.endDate | formatMediumDate }}</td>
+          <td>{{ educationDetails.degree }}</td>
+          <td>{{ educationDetails.fieldofStudy }}</td>
+          <td>{{ educationDetails.graduationDate | formatMediumDate }}</td>
+          <td>{{ educationDetails.educationSummary }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/education-details', educationDetails.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/education-details', educationDetails.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(educationDetails)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

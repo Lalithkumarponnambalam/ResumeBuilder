@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="certificationDetails">
+      <h2 data-cy="certificationDetailsDetailsHeading">
+        <span jhiTranslate="resumeApp.certificationDetails.detail.title">Certification Details</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ certificationDetails.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.certificationDetails.certificateName">Certificate Name</span></dt>
+        <dd>
+          <span>{{ certificationDetails.certificateName }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.certificationDetails.institution">Institution</span></dt>
+        <dd>
+          <span>{{ certificationDetails.institution }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.certificationDetails.certificateDate">Certificate Date</span></dt>
+        <dd>
+          <span>{{ certificationDetails.certificateDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.certificationDetails.certificationSummary">Certification Summary</span></dt>
+        <dd>
+          <span>{{ certificationDetails.certificationSummary }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/certification-details', certificationDetails.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

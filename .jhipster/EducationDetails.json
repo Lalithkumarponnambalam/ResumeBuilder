@@ -1,0 +1,54 @@
+{
+  "applications": ["resume"],
+  "changelogDate": "20240308075705",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "education_details",
+  "fields": [
+    {
+      "fieldName": "schoolName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "city",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "state",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "degree",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fieldofStudy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "graduationDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "educationSummary",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "EducationDetails",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

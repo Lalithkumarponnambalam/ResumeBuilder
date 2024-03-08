@@ -1,0 +1,24 @@
+{
+  "resumeApp": {
+    "areaofInterest": {
+      "home": {
+        "title": "AreaofInterests",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Areaof Interest",
+        "createOrEditLabel": "Créer ou éditer un Areaof Interest",
+        "notFound": "Aucun Areaof Interest trouvé"
+      },
+      "created": "Un nouveau Areaof Interest a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Areaof Interest avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Areaof Interest avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Areaof Interest {{ id }} ?"
+      },
+      "detail": {
+        "title": "Areaof Interest"
+      },
+      "id": "ID",
+      "intrestSummary": "Intrest Summary"
+    }
+  }
+}

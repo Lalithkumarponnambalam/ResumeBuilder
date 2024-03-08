@@ -1,0 +1,37 @@
+export enum LangOptions {
+  English = 'English',
+
+  Chinese = 'Chinese',
+
+  Spanish = 'Spanish',
+
+  French = 'French',
+
+  Arabic = 'Arabic',
+
+  Russian = 'Russian',
+
+  German = 'German',
+
+  Portuguese = 'Portuguese',
+
+  Japanese = 'Japanese',
+
+  Hindi = 'Hindi',
+
+  Tamil = 'Tamil',
+
+  Bengali = 'Bengali',
+
+  Telugu = 'Telugu',
+
+  Marathi = 'Marathi',
+
+  Gujarati = 'Gujarati',
+
+  Kannada = 'Kannada',
+
+  Odia = 'Odia',
+
+  Punjabi = 'Punjabi',
+}

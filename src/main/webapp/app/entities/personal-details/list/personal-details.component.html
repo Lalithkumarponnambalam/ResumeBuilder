@@ -1,0 +1,106 @@
+<div>
+  <h2 id="page-heading" data-cy="PersonalDetailsHeading">
+    <span jhiTranslate="resumeApp.personalDetails.home.title">Personal Details</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="resumeApp.personalDetails.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-personal-details"
+        [routerLink]="['/personal-details/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="resumeApp.personalDetails.home.createLabel"> Create a new Personal Details </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="personalDetails?.length === 0">
+    <span jhiTranslate="resumeApp.personalDetails.home.notFound">No personalDetails found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="personalDetails && personalDetails.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.personalDetails.profilePhoto">Profile Photo</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.personalDetails.firstName">First Name</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.personalDetails.lastName">Last Name</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.personalDetails.email">Email</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.personalDetails.phone">Phone</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.personalDetails.address">Address</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.personalDetails.city">City</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.personalDetails.state">State</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.personalDetails.zipCode">Zip Code</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.personalDetails.country">Country</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let personalDetails of personalDetails; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/personal-details', personalDetails.id, 'view']">{{ personalDetails.id }}</a>
+          </td>
+          <td>
+            <a
+              *ngIf="personalDetails.profilePhoto"
+              (click)="openFile(personalDetails.profilePhoto, personalDetails.profilePhotoContentType)"
+              jhiTranslate="entity.action.open"
+              >open</a
+            >
+            <span *ngIf="personalDetails.profilePhoto"
+              >{{ personalDetails.profilePhotoContentType }}, {{ byteSize(personalDetails.profilePhoto) }}</span
+            >
+          </td>
+          <td>{{ personalDetails.firstName }}</td>
+          <td>{{ personalDetails.lastName }}</td>
+          <td>{{ personalDetails.email }}</td>
+          <td>{{ personalDetails.phone }}</td>
+          <td>{{ personalDetails.address }}</td>
+          <td>{{ personalDetails.city }}</td>
+          <td>{{ personalDetails.state }}</td>
+          <td>{{ personalDetails.zipCode }}</td>
+          <td>{{ personalDetails.country }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/personal-details', personalDetails.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/personal-details', personalDetails.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(personalDetails)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

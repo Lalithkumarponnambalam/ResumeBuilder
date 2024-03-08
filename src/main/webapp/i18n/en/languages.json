@@ -1,0 +1,24 @@
+{
+  "resumeApp": {
+    "languages": {
+      "home": {
+        "title": "Languages",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Languages",
+        "createOrEditLabel": "Create or edit a Languages",
+        "notFound": "No Languages found"
+      },
+      "created": "A new Languages is created with identifier {{ param }}",
+      "updated": "A Languages is updated with identifier {{ param }}",
+      "deleted": "A Languages is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Languages {{ id }}?"
+      },
+      "detail": {
+        "title": "Languages"
+      },
+      "id": "ID",
+      "langOption": "Lang Option"
+    }
+  }
+}

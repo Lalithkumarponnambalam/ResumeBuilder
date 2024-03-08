@@ -1,0 +1,27 @@
+{
+  "resumeApp": {
+    "certificationDetails": {
+      "home": {
+        "title": "CertificationDetails",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Certification Details",
+        "createOrEditLabel": "Créer ou éditer un Certification Details",
+        "notFound": "Aucun Certification Details trouvé"
+      },
+      "created": "Un nouveau Certification Details a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Certification Details avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Certification Details avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Certification Details {{ id }} ?"
+      },
+      "detail": {
+        "title": "Certification Details"
+      },
+      "id": "ID",
+      "certificateName": "Certificate Name",
+      "institution": "Institution",
+      "certificateDate": "Certificate Date",
+      "certificationSummary": "Certification Summary"
+    }
+  }
+}

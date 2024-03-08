@@ -1,0 +1,154 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-education-details-heading"
+        data-cy="EducationDetailsCreateUpdateHeading"
+        jhiTranslate="resumeApp.educationDetails.home.createOrEditLabel"
+      >
+        Create or edit a Education Details
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.educationDetails.schoolName" for="field_schoolName">School Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="schoolName"
+            id="field_schoolName"
+            data-cy="schoolName"
+            formControlName="schoolName"
+          />
+          <div *ngIf="editForm.get('schoolName')!.invalid && (editForm.get('schoolName')!.dirty || editForm.get('schoolName')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('schoolName')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.educationDetails.city" for="field_city">City</label>
+          <input type="text" class="form-control" name="city" id="field_city" data-cy="city" formControlName="city" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.educationDetails.state" for="field_state">State</label>
+          <input type="text" class="form-control" name="state" id="field_state" data-cy="state" formControlName="state" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.educationDetails.startDate" for="field_startDate">Start Date</label>
+          <div class="input-group">
+            <input
+              id="field_startDate"
+              data-cy="startDate"
+              type="text"
+              class="form-control"
+              name="startDate"
+              ngbDatepicker
+              #startDateDp="ngbDatepicker"
+              formControlName="startDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="startDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.educationDetails.endDate" for="field_endDate">End Date</label>
+          <div class="input-group">
+            <input
+              id="field_endDate"
+              data-cy="endDate"
+              type="text"
+              class="form-control"
+              name="endDate"
+              ngbDatepicker
+              #endDateDp="ngbDatepicker"
+              formControlName="endDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="endDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.educationDetails.degree" for="field_degree">Degree</label>
+          <input type="text" class="form-control" name="degree" id="field_degree" data-cy="degree" formControlName="degree" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.educationDetails.fieldofStudy" for="field_fieldofStudy">Fieldof Study</label>
+          <input
+            type="text"
+            class="form-control"
+            name="fieldofStudy"
+            id="field_fieldofStudy"
+            data-cy="fieldofStudy"
+            formControlName="fieldofStudy"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.educationDetails.graduationDate" for="field_graduationDate"
+            >Graduation Date</label
+          >
+          <div class="input-group">
+            <input
+              id="field_graduationDate"
+              data-cy="graduationDate"
+              type="text"
+              class="form-control"
+              name="graduationDate"
+              ngbDatepicker
+              #graduationDateDp="ngbDatepicker"
+              formControlName="graduationDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="graduationDateDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.educationDetails.educationSummary" for="field_educationSummary"
+            >Education Summary</label
+          >
+          <textarea
+            class="form-control"
+            name="educationSummary"
+            id="field_educationSummary"
+            data-cy="educationSummary"
+            formControlName="educationSummary"
+          ></textarea>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

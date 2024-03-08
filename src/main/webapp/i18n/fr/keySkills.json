@@ -1,0 +1,24 @@
+{
+  "resumeApp": {
+    "keySkills": {
+      "home": {
+        "title": "KeySkills",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Key Skills",
+        "createOrEditLabel": "Créer ou éditer un Key Skills",
+        "notFound": "Aucun Key Skills trouvé"
+      },
+      "created": "Un nouveau Key Skills a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Key Skills avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Key Skills avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Key Skills {{ id }} ?"
+      },
+      "detail": {
+        "title": "Key Skills"
+      },
+      "id": "ID",
+      "keySkillsSummary": "Key Skills Summary"
+    }
+  }
+}

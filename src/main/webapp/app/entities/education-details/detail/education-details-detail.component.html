@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="educationDetails">
+      <h2 data-cy="educationDetailsDetailsHeading">
+        <span jhiTranslate="resumeApp.educationDetails.detail.title">Education Details</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ educationDetails.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.educationDetails.schoolName">School Name</span></dt>
+        <dd>
+          <span>{{ educationDetails.schoolName }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.educationDetails.city">City</span></dt>
+        <dd>
+          <span>{{ educationDetails.city }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.educationDetails.state">State</span></dt>
+        <dd>
+          <span>{{ educationDetails.state }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.educationDetails.startDate">Start Date</span></dt>
+        <dd>
+          <span>{{ educationDetails.startDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.educationDetails.endDate">End Date</span></dt>
+        <dd>
+          <span>{{ educationDetails.endDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.educationDetails.degree">Degree</span></dt>
+        <dd>
+          <span>{{ educationDetails.degree }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.educationDetails.fieldofStudy">Fieldof Study</span></dt>
+        <dd>
+          <span>{{ educationDetails.fieldofStudy }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.educationDetails.graduationDate">Graduation Date</span></dt>
+        <dd>
+          <span>{{ educationDetails.graduationDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.educationDetails.educationSummary">Education Summary</span></dt>
+        <dd>
+          <span>{{ educationDetails.educationSummary }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/education-details', educationDetails.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+{
+  "resumeApp": {
+    "resume": {
+      "home": {
+        "title": "Resumes",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Resume",
+        "createOrEditLabel": "Créer ou éditer un Resume",
+        "notFound": "Aucun Resume trouvé"
+      },
+      "created": "Un nouveau Resume a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Resume avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Resume avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Resume {{ id }} ?"
+      },
+      "detail": {
+        "title": "Resume"
+      },
+      "id": "ID",
+      "resumeSummary": "Resume Summary",
+      "jobTitle": "Job Title",
+      "personalDetails": "Personal Details",
+      "workDetails": "Work Details",
+      "experienceDetails": "Experience Details",
+      "educationDetails": "Education Details",
+      "certificationDetails": "Certification Details",
+      "languages": "Languages",
+      "keySkills": "Key Skills",
+      "areaofInterest": "Areaof Interest",
+      "socialLinks": "Social Links",
+      "internship": "Internship"
+    }
+  }
+}

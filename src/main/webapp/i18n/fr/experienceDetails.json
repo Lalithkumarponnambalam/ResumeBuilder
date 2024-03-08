@@ -1,0 +1,28 @@
+{
+  "resumeApp": {
+    "experienceDetails": {
+      "home": {
+        "title": "ExperienceDetails",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Experience Details",
+        "createOrEditLabel": "Créer ou éditer un Experience Details",
+        "notFound": "Aucun Experience Details trouvé"
+      },
+      "created": "Un nouveau Experience Details a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Experience Details avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Experience Details avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Experience Details {{ id }} ?"
+      },
+      "detail": {
+        "title": "Experience Details"
+      },
+      "id": "ID",
+      "positionTitle": "Position Title",
+      "companyName": "Company Name",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "workSummary": "Work Summary"
+    }
+  }
+}

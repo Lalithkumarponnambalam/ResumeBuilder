@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Resume.
+    -->
+    <changeSet id="20240308075305-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="personal_details_id"
+                                 baseTableName="resume"
+                                 constraintName="fk_resume__personal_details_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="personal_details"/>
+
+        <addForeignKeyConstraint baseColumnNames="work_details_id"
+                                 baseTableName="resume"
+                                 constraintName="fk_resume__work_details_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="work_details"/>
+
+        <addForeignKeyConstraint baseColumnNames="experience_details_id"
+                                 baseTableName="resume"
+                                 constraintName="fk_resume__experience_details_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="experience_details"/>
+
+        <addForeignKeyConstraint baseColumnNames="education_details_id"
+                                 baseTableName="resume"
+                                 constraintName="fk_resume__education_details_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="education_details"/>
+
+        <addForeignKeyConstraint baseColumnNames="certification_details_id"
+                                 baseTableName="resume"
+                                 constraintName="fk_resume__certification_details_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="certification_details"/>
+
+        <addForeignKeyConstraint baseColumnNames="languages_id"
+                                 baseTableName="resume"
+                                 constraintName="fk_resume__languages_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="languages"/>
+
+        <addForeignKeyConstraint baseColumnNames="key_skills_id"
+                                 baseTableName="resume"
+                                 constraintName="fk_resume__key_skills_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="key_skills"/>
+
+        <addForeignKeyConstraint baseColumnNames="areaof_interest_id"
+                                 baseTableName="resume"
+                                 constraintName="fk_resume__areaof_interest_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="areaof_interest"/>
+
+        <addForeignKeyConstraint baseColumnNames="social_links_id"
+                                 baseTableName="resume"
+                                 constraintName="fk_resume__social_links_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="social_links"/>
+
+        <addForeignKeyConstraint baseColumnNames="internship_id"
+                                 baseTableName="resume"
+                                 constraintName="fk_resume__internship_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="internship"/>
+    </changeSet>
+</databaseChangeLog>

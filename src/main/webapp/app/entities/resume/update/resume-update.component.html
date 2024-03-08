@@ -1,0 +1,240 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-resume-heading" data-cy="ResumeCreateUpdateHeading" jhiTranslate="resumeApp.resume.home.createOrEditLabel">
+        Create or edit a Resume
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resume.resumeSummary" for="field_resumeSummary">Resume Summary</label>
+          <textarea
+            class="form-control"
+            name="resumeSummary"
+            id="field_resumeSummary"
+            data-cy="resumeSummary"
+            formControlName="resumeSummary"
+          ></textarea>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resume.jobTitle" for="field_jobTitle">Job Title</label>
+          <input type="text" class="form-control" name="jobTitle" id="field_jobTitle" data-cy="jobTitle" formControlName="jobTitle" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resume.personalDetails" for="field_personalDetails">Personal Details</label>
+          <select
+            class="form-control"
+            id="field_personalDetails"
+            data-cy="personalDetails"
+            name="personalDetails"
+            formControlName="personalDetails"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                personalDetailsOption.id === editForm.get('personalDetails')!.value?.id
+                  ? editForm.get('personalDetails')!.value
+                  : personalDetailsOption
+              "
+              *ngFor="let personalDetailsOption of personalDetailsCollection; trackBy: trackPersonalDetailsById"
+            >
+              {{ personalDetailsOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resume.workDetails" for="field_workDetails">Work Details</label>
+          <select class="form-control" id="field_workDetails" data-cy="workDetails" name="workDetails" formControlName="workDetails">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                workDetailsOption.id === editForm.get('workDetails')!.value?.id ? editForm.get('workDetails')!.value : workDetailsOption
+              "
+              *ngFor="let workDetailsOption of workDetailsCollection; trackBy: trackWorkDetailsById"
+            >
+              {{ workDetailsOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resume.experienceDetails" for="field_experienceDetails"
+            >Experience Details</label
+          >
+          <select
+            class="form-control"
+            id="field_experienceDetails"
+            data-cy="experienceDetails"
+            name="experienceDetails"
+            formControlName="experienceDetails"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                experienceDetailsOption.id === editForm.get('experienceDetails')!.value?.id
+                  ? editForm.get('experienceDetails')!.value
+                  : experienceDetailsOption
+              "
+              *ngFor="let experienceDetailsOption of experienceDetailsCollection; trackBy: trackExperienceDetailsById"
+            >
+              {{ experienceDetailsOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resume.educationDetails" for="field_educationDetails">Education Details</label>
+          <select
+            class="form-control"
+            id="field_educationDetails"
+            data-cy="educationDetails"
+            name="educationDetails"
+            formControlName="educationDetails"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                educationDetailsOption.id === editForm.get('educationDetails')!.value?.id
+                  ? editForm.get('educationDetails')!.value
+                  : educationDetailsOption
+              "
+              *ngFor="let educationDetailsOption of educationDetailsCollection; trackBy: trackEducationDetailsById"
+            >
+              {{ educationDetailsOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resume.certificationDetails" for="field_certificationDetails"
+            >Certification Details</label
+          >
+          <select
+            class="form-control"
+            id="field_certificationDetails"
+            data-cy="certificationDetails"
+            name="certificationDetails"
+            formControlName="certificationDetails"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                certificationDetailsOption.id === editForm.get('certificationDetails')!.value?.id
+                  ? editForm.get('certificationDetails')!.value
+                  : certificationDetailsOption
+              "
+              *ngFor="let certificationDetailsOption of certificationDetailsCollection; trackBy: trackCertificationDetailsById"
+            >
+              {{ certificationDetailsOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resume.languages" for="field_languages">Languages</label>
+          <select class="form-control" id="field_languages" data-cy="languages" name="languages" formControlName="languages">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="languagesOption.id === editForm.get('languages')!.value?.id ? editForm.get('languages')!.value : languagesOption"
+              *ngFor="let languagesOption of languagesCollection; trackBy: trackLanguagesById"
+            >
+              {{ languagesOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resume.keySkills" for="field_keySkills">Key Skills</label>
+          <select class="form-control" id="field_keySkills" data-cy="keySkills" name="keySkills" formControlName="keySkills">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="keySkillsOption.id === editForm.get('keySkills')!.value?.id ? editForm.get('keySkills')!.value : keySkillsOption"
+              *ngFor="let keySkillsOption of keySkillsCollection; trackBy: trackKeySkillsById"
+            >
+              {{ keySkillsOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resume.areaofInterest" for="field_areaofInterest">Areaof Interest</label>
+          <select
+            class="form-control"
+            id="field_areaofInterest"
+            data-cy="areaofInterest"
+            name="areaofInterest"
+            formControlName="areaofInterest"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                areaofInterestOption.id === editForm.get('areaofInterest')!.value?.id
+                  ? editForm.get('areaofInterest')!.value
+                  : areaofInterestOption
+              "
+              *ngFor="let areaofInterestOption of areaofInterestsCollection; trackBy: trackAreaofInterestById"
+            >
+              {{ areaofInterestOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resume.socialLinks" for="field_socialLinks">Social Links</label>
+          <select class="form-control" id="field_socialLinks" data-cy="socialLinks" name="socialLinks" formControlName="socialLinks">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                socialLinksOption.id === editForm.get('socialLinks')!.value?.id ? editForm.get('socialLinks')!.value : socialLinksOption
+              "
+              *ngFor="let socialLinksOption of socialLinksCollection; trackBy: trackSocialLinksById"
+            >
+              {{ socialLinksOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="resumeApp.resume.internship" for="field_internship">Internship</label>
+          <select class="form-control" id="field_internship" data-cy="internship" name="internship" formControlName="internship">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                internshipOption.id === editForm.get('internship')!.value?.id ? editForm.get('internship')!.value : internshipOption
+              "
+              *ngFor="let internshipOption of internshipsCollection; trackBy: trackInternshipById"
+            >
+              {{ internshipOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

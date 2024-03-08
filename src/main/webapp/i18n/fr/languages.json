@@ -1,0 +1,24 @@
+{
+  "resumeApp": {
+    "languages": {
+      "home": {
+        "title": "Languages",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Languages",
+        "createOrEditLabel": "Créer ou éditer un Languages",
+        "notFound": "Aucun Languages trouvé"
+      },
+      "created": "Un nouveau Languages a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Languages avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Languages avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Languages {{ id }} ?"
+      },
+      "detail": {
+        "title": "Languages"
+      },
+      "id": "ID",
+      "langOption": "Lang Option"
+    }
+  }
+}

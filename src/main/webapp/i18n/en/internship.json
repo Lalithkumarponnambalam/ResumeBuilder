@@ -1,0 +1,30 @@
+{
+  "resumeApp": {
+    "internship": {
+      "home": {
+        "title": "Internships",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Internship",
+        "createOrEditLabel": "Create or edit a Internship",
+        "notFound": "No Internships found"
+      },
+      "created": "A new Internship is created with identifier {{ param }}",
+      "updated": "A Internship is updated with identifier {{ param }}",
+      "deleted": "A Internship is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Internship {{ id }}?"
+      },
+      "detail": {
+        "title": "Internship"
+      },
+      "id": "ID",
+      "jobTitle": "Job Title",
+      "employer": "Employer",
+      "companyName": "Company Name",
+      "address": "Address",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "internshipSummary": "Internship Summary"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "resumeApp": {
+    "workDetails": {
+      "home": {
+        "title": "Work Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Work Details",
+        "createOrEditLabel": "Create or edit a Work Details",
+        "notFound": "No Work Details found"
+      },
+      "created": "A new Work Details is created with identifier {{ param }}",
+      "updated": "A Work Details is updated with identifier {{ param }}",
+      "deleted": "A Work Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Work Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Work Details"
+      },
+      "id": "ID",
+      "jobTitle": "Job Title",
+      "position": "Position",
+      "companyName": "Company Name",
+      "city": "City",
+      "state": "State",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "workSummary": "Work Summary"
+    }
+  }
+}

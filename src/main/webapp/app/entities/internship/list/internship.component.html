@@ -1,0 +1,90 @@
+<div>
+  <h2 id="page-heading" data-cy="InternshipHeading">
+    <span jhiTranslate="resumeApp.internship.home.title">Internships</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="resumeApp.internship.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-internship"
+        [routerLink]="['/internship/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="resumeApp.internship.home.createLabel"> Create a new Internship </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="internships?.length === 0">
+    <span jhiTranslate="resumeApp.internship.home.notFound">No internships found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="internships && internships.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.internship.jobTitle">Job Title</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.internship.employer">Employer</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.internship.companyName">Company Name</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.internship.address">Address</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.internship.startDate">Start Date</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.internship.endDate">End Date</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.internship.internshipSummary">Internship Summary</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let internship of internships; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/internship', internship.id, 'view']">{{ internship.id }}</a>
+          </td>
+          <td>{{ internship.jobTitle }}</td>
+          <td>{{ internship.employer }}</td>
+          <td>{{ internship.companyName }}</td>
+          <td>{{ internship.address }}</td>
+          <td>{{ internship.startDate | formatMediumDate }}</td>
+          <td>{{ internship.endDate | formatMediumDate }}</td>
+          <td>{{ internship.internshipSummary }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/internship', internship.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/internship', internship.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(internship)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

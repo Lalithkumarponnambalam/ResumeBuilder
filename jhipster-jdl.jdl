@@ -1,0 +1,161 @@
+application {
+    config {
+        baseName resume,
+        applicationType monolith,
+        packageName com.resume.build,
+        authenticationType jwt,
+        prodDatabaseType postgresql,
+        clientFramework angular,
+        devDatabaseType h2Disk,
+        testFrameworks [cypress],
+        serviceDiscoveryType no,
+        languages [en, fr]
+    }
+    entities *
+}
+
+enum LangOptions {
+    English,
+    Chinese,
+    Spanish,
+    French,
+    Arabic,
+    Russian,
+    German,
+    Portuguese,
+    Japanese,
+    Hindi,
+    Tamil,
+    Bengali,
+    Telugu,
+    Marathi,
+    Gujarati,
+    Kannada,
+    Odia,
+    Punjabi
+}
+
+entity Resume {
+    resumeSummary TextBlob,
+    jobTitle String,
+}
+
+entity PersonalDetails {
+    profilePhoto Blob,
+    firstName String required,
+    lastName String required,
+    email String required,
+    phone String,
+    address String,
+    city String,
+    state String,
+    zipCode String,
+    country String
+}
+
+entity WorkDetails {
+    jobTitle String required,
+    position String,
+    companyName String,
+    city String,
+    state String,
+    startDate LocalDate,
+    endDate LocalDate,
+    workSummary TextBlob
+}
+
+entity ExperienceDetails {
+    positionTitle String,
+    companyName String,
+    startDate LocalDate,
+    endDate LocalDate,
+    workSummary TextBlob
+}
+
+entity EducationDetails {
+    schoolName String required,
+    city String,
+    state String,
+    startDate LocalDate,
+    endDate LocalDate,
+    degree String,
+    fieldofStudy String,
+    graduationDate LocalDate,
+    educationSummary TextBlob
+}
+
+entity KeySkills {
+    keySkillsSummary TextBlob
+}
+
+entity CertificationDetails {
+    certificateName String,
+    institution String,
+    certificateDate LocalDate,
+    certificationSummary TextBlob,
+}
+
+entity Languages {
+    langOption LangOptions
+}
+
+entity AreaofInterest {
+    intrestSummary TextBlob,
+}
+
+entity SocialLinks {
+    lable String,
+    link String,
+}
+
+entity Internship {
+    jobTitle String,
+    Employer String,
+    companyName String
+    address String,
+    startDate LocalDate,
+    endDate LocalDate,
+    internshipSummary TextBlob,
+}
+
+// Define relationships
+relationship OneToOne {
+    Resume{personalDetails} to PersonalDetails
+}
+
+relationship OneToOne {
+    Resume{workDetails} to WorkDetails
+}
+
+relationship OneToOne {
+    Resume{experienceDetails} to ExperienceDetails
+}
+
+relationship OneToOne {
+    Resume{EducationDetails} to EducationDetails
+}
+
+relationship OneToOne {
+    Resume{CertificationDetails} to CertificationDetails
+}
+
+relationship OneToOne {
+    Resume{languages} to Languages
+}
+
+relationship OneToOne {
+	Resume{KeySkills} to KeySkills
+}
+
+relationship OneToOne {
+    Resume{AreaofInterest} to AreaofInterest
+}
+
+relationship OneToOne {
+    Resume{SocialLinks} to SocialLinks
+}
+
+relationship OneToOne {
+    Resume{Internship} to Internship
+}
+

@@ -1,0 +1,73 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="personalDetails">
+      <h2 data-cy="personalDetailsDetailsHeading"><span jhiTranslate="resumeApp.personalDetails.detail.title">Personal Details</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ personalDetails.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.personalDetails.profilePhoto">Profile Photo</span></dt>
+        <dd>
+          <div *ngIf="personalDetails.profilePhoto">
+            <a (click)="openFile(personalDetails.profilePhoto, personalDetails.profilePhotoContentType)" jhiTranslate="entity.action.open"
+              >open</a
+            >
+            {{ personalDetails.profilePhotoContentType }}, {{ byteSize(personalDetails.profilePhoto) }}
+          </div>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.personalDetails.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ personalDetails.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.personalDetails.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ personalDetails.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.personalDetails.email">Email</span></dt>
+        <dd>
+          <span>{{ personalDetails.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.personalDetails.phone">Phone</span></dt>
+        <dd>
+          <span>{{ personalDetails.phone }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.personalDetails.address">Address</span></dt>
+        <dd>
+          <span>{{ personalDetails.address }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.personalDetails.city">City</span></dt>
+        <dd>
+          <span>{{ personalDetails.city }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.personalDetails.state">State</span></dt>
+        <dd>
+          <span>{{ personalDetails.state }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.personalDetails.zipCode">Zip Code</span></dt>
+        <dd>
+          <span>{{ personalDetails.zipCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.personalDetails.country">Country</span></dt>
+        <dd>
+          <span>{{ personalDetails.country }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/personal-details', personalDetails.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+{
+  "applications": ["resume"],
+  "changelogDate": "20240308075805",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "key_skills",
+  "fields": [
+    {
+      "fieldName": "keySkillsSummary",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "KeySkills",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

@@ -1,0 +1,37 @@
+{
+  "applications": ["resume"],
+  "changelogDate": "20240308075605",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "experience_details",
+  "fields": [
+    {
+      "fieldName": "positionTitle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "companyName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "workSummary",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ExperienceDetails",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

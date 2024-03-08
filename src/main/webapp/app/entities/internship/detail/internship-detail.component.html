@@ -1,0 +1,56 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="internship">
+      <h2 data-cy="internshipDetailsHeading"><span jhiTranslate="resumeApp.internship.detail.title">Internship</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ internship.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.internship.jobTitle">Job Title</span></dt>
+        <dd>
+          <span>{{ internship.jobTitle }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.internship.employer">Employer</span></dt>
+        <dd>
+          <span>{{ internship.employer }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.internship.companyName">Company Name</span></dt>
+        <dd>
+          <span>{{ internship.companyName }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.internship.address">Address</span></dt>
+        <dd>
+          <span>{{ internship.address }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.internship.startDate">Start Date</span></dt>
+        <dd>
+          <span>{{ internship.startDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.internship.endDate">End Date</span></dt>
+        <dd>
+          <span>{{ internship.endDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.internship.internshipSummary">Internship Summary</span></dt>
+        <dd>
+          <span>{{ internship.internshipSummary }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/internship', internship.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

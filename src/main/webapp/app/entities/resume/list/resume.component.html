@@ -1,0 +1,132 @@
+<div>
+  <h2 id="page-heading" data-cy="ResumeHeading">
+    <span jhiTranslate="resumeApp.resume.home.title">Resumes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="resumeApp.resume.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-resume"
+        [routerLink]="['/resume/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="resumeApp.resume.home.createLabel"> Create a new Resume </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="resumes?.length === 0">
+    <span jhiTranslate="resumeApp.resume.home.notFound">No resumes found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="resumes && resumes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resume.resumeSummary">Resume Summary</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resume.jobTitle">Job Title</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resume.personalDetails">Personal Details</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resume.workDetails">Work Details</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resume.experienceDetails">Experience Details</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resume.educationDetails">Education Details</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resume.certificationDetails">Certification Details</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resume.languages">Languages</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resume.keySkills">Key Skills</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resume.areaofInterest">Areaof Interest</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resume.socialLinks">Social Links</span></th>
+          <th scope="col"><span jhiTranslate="resumeApp.resume.internship">Internship</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let resume of resumes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/resume', resume.id, 'view']">{{ resume.id }}</a>
+          </td>
+          <td>{{ resume.resumeSummary }}</td>
+          <td>{{ resume.jobTitle }}</td>
+          <td>
+            <div *ngIf="resume.personalDetails">
+              <a [routerLink]="['/personal-details', resume.personalDetails?.id, 'view']">{{ resume.personalDetails?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="resume.workDetails">
+              <a [routerLink]="['/work-details', resume.workDetails?.id, 'view']">{{ resume.workDetails?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="resume.experienceDetails">
+              <a [routerLink]="['/experience-details', resume.experienceDetails?.id, 'view']">{{ resume.experienceDetails?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="resume.educationDetails">
+              <a [routerLink]="['/education-details', resume.educationDetails?.id, 'view']">{{ resume.educationDetails?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="resume.certificationDetails">
+              <a [routerLink]="['/certification-details', resume.certificationDetails?.id, 'view']">{{
+                resume.certificationDetails?.id
+              }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="resume.languages">
+              <a [routerLink]="['/languages', resume.languages?.id, 'view']">{{ resume.languages?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="resume.keySkills">
+              <a [routerLink]="['/key-skills', resume.keySkills?.id, 'view']">{{ resume.keySkills?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="resume.areaofInterest">
+              <a [routerLink]="['/areaof-interest', resume.areaofInterest?.id, 'view']">{{ resume.areaofInterest?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="resume.socialLinks">
+              <a [routerLink]="['/social-links', resume.socialLinks?.id, 'view']">{{ resume.socialLinks?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="resume.internship">
+              <a [routerLink]="['/internship', resume.internship?.id, 'view']">{{ resume.internship?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/resume', resume.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/resume', resume.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(resume)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

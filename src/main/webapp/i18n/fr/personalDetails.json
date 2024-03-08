@@ -1,0 +1,33 @@
+{
+  "resumeApp": {
+    "personalDetails": {
+      "home": {
+        "title": "PersonalDetails",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Personal Details",
+        "createOrEditLabel": "Créer ou éditer un Personal Details",
+        "notFound": "Aucun Personal Details trouvé"
+      },
+      "created": "Un nouveau Personal Details a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Personal Details avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Personal Details avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Personal Details {{ id }} ?"
+      },
+      "detail": {
+        "title": "Personal Details"
+      },
+      "id": "ID",
+      "profilePhoto": "Profile Photo",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "city": "City",
+      "state": "State",
+      "zipCode": "Zip Code",
+      "country": "Country"
+    }
+  }
+}

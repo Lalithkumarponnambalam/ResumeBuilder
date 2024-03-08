@@ -1,0 +1,33 @@
+{
+  "applications": ["resume"],
+  "changelogDate": "20240308075905",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "certification_details",
+  "fields": [
+    {
+      "fieldName": "certificateName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "institution",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "certificateDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "certificationSummary",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "CertificationDetails",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

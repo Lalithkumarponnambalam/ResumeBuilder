@@ -1,0 +1,96 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="resume">
+      <h2 data-cy="resumeDetailsHeading"><span jhiTranslate="resumeApp.resume.detail.title">Resume</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ resume.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resume.resumeSummary">Resume Summary</span></dt>
+        <dd>
+          <span>{{ resume.resumeSummary }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resume.jobTitle">Job Title</span></dt>
+        <dd>
+          <span>{{ resume.jobTitle }}</span>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resume.personalDetails">Personal Details</span></dt>
+        <dd>
+          <div *ngIf="resume.personalDetails">
+            <a [routerLink]="['/personal-details', resume.personalDetails?.id, 'view']">{{ resume.personalDetails?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resume.workDetails">Work Details</span></dt>
+        <dd>
+          <div *ngIf="resume.workDetails">
+            <a [routerLink]="['/work-details', resume.workDetails?.id, 'view']">{{ resume.workDetails?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resume.experienceDetails">Experience Details</span></dt>
+        <dd>
+          <div *ngIf="resume.experienceDetails">
+            <a [routerLink]="['/experience-details', resume.experienceDetails?.id, 'view']">{{ resume.experienceDetails?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resume.educationDetails">Education Details</span></dt>
+        <dd>
+          <div *ngIf="resume.educationDetails">
+            <a [routerLink]="['/education-details', resume.educationDetails?.id, 'view']">{{ resume.educationDetails?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resume.certificationDetails">Certification Details</span></dt>
+        <dd>
+          <div *ngIf="resume.certificationDetails">
+            <a [routerLink]="['/certification-details', resume.certificationDetails?.id, 'view']">{{ resume.certificationDetails?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resume.languages">Languages</span></dt>
+        <dd>
+          <div *ngIf="resume.languages">
+            <a [routerLink]="['/languages', resume.languages?.id, 'view']">{{ resume.languages?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resume.keySkills">Key Skills</span></dt>
+        <dd>
+          <div *ngIf="resume.keySkills">
+            <a [routerLink]="['/key-skills', resume.keySkills?.id, 'view']">{{ resume.keySkills?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resume.areaofInterest">Areaof Interest</span></dt>
+        <dd>
+          <div *ngIf="resume.areaofInterest">
+            <a [routerLink]="['/areaof-interest', resume.areaofInterest?.id, 'view']">{{ resume.areaofInterest?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resume.socialLinks">Social Links</span></dt>
+        <dd>
+          <div *ngIf="resume.socialLinks">
+            <a [routerLink]="['/social-links', resume.socialLinks?.id, 'view']">{{ resume.socialLinks?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="resumeApp.resume.internship">Internship</span></dt>
+        <dd>
+          <div *ngIf="resume.internship">
+            <a [routerLink]="['/internship', resume.internship?.id, 'view']">{{ resume.internship?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/resume', resume.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

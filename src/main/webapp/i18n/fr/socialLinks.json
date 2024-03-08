@@ -1,0 +1,25 @@
+{
+  "resumeApp": {
+    "socialLinks": {
+      "home": {
+        "title": "SocialLinks",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Social Links",
+        "createOrEditLabel": "Créer ou éditer un Social Links",
+        "notFound": "Aucun Social Links trouvé"
+      },
+      "created": "Un nouveau Social Links a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Social Links avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Social Links avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Social Links {{ id }} ?"
+      },
+      "detail": {
+        "title": "Social Links"
+      },
+      "id": "ID",
+      "lable": "Lable",
+      "link": "Link"
+    }
+  }
+}

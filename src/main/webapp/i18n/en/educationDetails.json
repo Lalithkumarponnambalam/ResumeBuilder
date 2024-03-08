@@ -1,0 +1,32 @@
+{
+  "resumeApp": {
+    "educationDetails": {
+      "home": {
+        "title": "Education Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Education Details",
+        "createOrEditLabel": "Create or edit a Education Details",
+        "notFound": "No Education Details found"
+      },
+      "created": "A new Education Details is created with identifier {{ param }}",
+      "updated": "A Education Details is updated with identifier {{ param }}",
+      "deleted": "A Education Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Education Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Education Details"
+      },
+      "id": "ID",
+      "schoolName": "School Name",
+      "city": "City",
+      "state": "State",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "degree": "Degree",
+      "fieldofStudy": "Fieldof Study",
+      "graduationDate": "Graduation Date",
+      "educationSummary": "Education Summary"
+    }
+  }
+}

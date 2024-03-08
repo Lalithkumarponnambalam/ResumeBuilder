@@ -1,0 +1,21 @@
+{
+  "applications": ["resume"],
+  "changelogDate": "20240308080105",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "areaof_interest",
+  "fields": [
+    {
+      "fieldName": "intrestSummary",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "AreaofInterest",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

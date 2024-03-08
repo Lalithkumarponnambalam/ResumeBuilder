@@ -1,0 +1,24 @@
+{
+  "applications": ["resume"],
+  "changelogDate": "20240308080205",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "social_links",
+  "fields": [
+    {
+      "fieldName": "lable",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "link",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "SocialLinks",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

@@ -1,0 +1,21 @@
+{
+  "applications": ["resume"],
+  "changelogDate": "20240308080005",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "languages",
+  "fields": [
+    {
+      "fieldName": "langOption",
+      "fieldType": "LangOptions",
+      "fieldValues": "English,Chinese,Spanish,French,Arabic,Russian,German,Portuguese,Japanese,Hindi,Tamil,Bengali,Telugu,Marathi,Gujarati,Kannada,Odia,Punjabi"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Languages",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

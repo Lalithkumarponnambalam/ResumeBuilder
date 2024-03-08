@@ -1,0 +1,96 @@
+{
+  "applications": ["resume"],
+  "changelogDate": "20240308075305",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "resume",
+  "fields": [
+    {
+      "fieldName": "resumeSummary",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "jobTitle",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Resume",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "personalDetails",
+      "otherEntityRelationshipName": "resume",
+      "ownerSide": true,
+      "relationshipName": "personalDetails",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "workDetails",
+      "otherEntityRelationshipName": "resume",
+      "ownerSide": true,
+      "relationshipName": "workDetails",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "experienceDetails",
+      "otherEntityRelationshipName": "resume",
+      "ownerSide": true,
+      "relationshipName": "experienceDetails",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "educationDetails",
+      "otherEntityRelationshipName": "resume",
+      "ownerSide": true,
+      "relationshipName": "educationDetails",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "certificationDetails",
+      "otherEntityRelationshipName": "resume",
+      "ownerSide": true,
+      "relationshipName": "certificationDetails",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "languages",
+      "otherEntityRelationshipName": "resume",
+      "ownerSide": true,
+      "relationshipName": "languages",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "keySkills",
+      "otherEntityRelationshipName": "resume",
+      "ownerSide": true,
+      "relationshipName": "keySkills",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "areaofInterest",
+      "otherEntityRelationshipName": "resume",
+      "ownerSide": true,
+      "relationshipName": "areaofInterest",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "socialLinks",
+      "otherEntityRelationshipName": "resume",
+      "ownerSide": true,
+      "relationshipName": "socialLinks",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "internship",
+      "otherEntityRelationshipName": "resume",
+      "ownerSide": true,
+      "relationshipName": "internship",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}
